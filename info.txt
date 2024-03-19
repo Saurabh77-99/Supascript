@@ -1,0 +1,48 @@
+There is a source code of any Language.
+
+Source code to tokens -> Lexical Analysis
+tokens to AST         -> Syntax Analysis
+AST to code execution -> Code Generation
+
+(1) Lexer / Tokenisation - Build a Lexer
+
+Source code is given to Lexer.
+It converts split the source code into tokens. We will get tokens.
+
+const x = 10;
+const y = 20;
+const result = x + y;
+console.log(result);
+
+[KEYWORD : Const]
+[VARIABLE : X]
+[OPERATOR : =]
+[Number : 10]
+[identifier : ;]
+[NEWLINE]
+
+(2) We have to make tree of tokens - AST - Abstract Syntax tree
+After tokens are generated , its given to the parser , pareser converts it to AST.
+
+root -> program -> AST
+           |
+    ______________________________________________
+    |                        |                   |    
+STATEMENT                 STATEMENT           STATEMENT
+    |                        |                   |
+_________________     ________________     _________________________
+|   |           |    |       |       |    |           |            |      
+x  Assignemnt   10   y  Assignemnt   10   result  Assignemnt   expression
+                                                                   |
+                                                            _________________ 
+                                                            |        |       |
+                                                            x        +       y
+
+
+(3) After tree is generated , Code Generation takes place.
+
+Our compiler after generating a tree,it converts and generates into machine understandable code.
+We can optimize the code too.
+After Code is generated we run the code.
+
+(4) Code run
